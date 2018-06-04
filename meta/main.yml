@@ -11,5 +11,7 @@ galaxy_info:
   - name: Debian
     versions:
     - all
-  galaxy_tags: [mailserver, postfix]
+  galaxy_tags: 
+    - mailserver 
+    - postfix
 dependencies: []
