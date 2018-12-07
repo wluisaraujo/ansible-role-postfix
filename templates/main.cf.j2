@@ -8,13 +8,9 @@ inet_interfaces	= all
 inet_protocols 	= all
 
 myhostname	= {{ ansible_fqdn }}
-
 myorigin	= /etc/mailname
-
 mydestination 	= {{ ansible_domain }}, smtp.{{ ansible_domain }}, {{ ansible_fqdn }}, webmail.{{ ansible_domain }}, pop.{{ ansible_domain }}, imap.{{ ansible_domain }}, localhost
-
 mynetworks 	= {{ ansible_default_ipv4.address }}, 127.0.0.1
-
 relayhost	=
 
 alias_maps = hash:/etc/aliases
@@ -38,3 +34,4 @@ smtp_tls_session_cache_database  = brtree:${data_directory}/smtp_scache
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
 recpient_delimiter = +
 
+disable_vrfy_command = yes
