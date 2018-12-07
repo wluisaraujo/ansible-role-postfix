@@ -4,10 +4,10 @@
     - ansible_os_family == "Debian"
     - ansible_os_family == "RedHat"
     
-#- import_tasks: configure.yml
-#  when: 
-#    - ansible_os_family == "Debian"
-#    - ansible_os_family == "RedHat"
+- import_tasks: configure.yml
+  when: 
+    - ansible_os_family == "Debian"
+    - ansible_os_family == "RedHat"
     
 #- import_tasks: maildir
 #  when: 
