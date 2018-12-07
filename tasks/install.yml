@@ -1,11 +1,28 @@
 --- 
-- name: Instala servidor de e-mail postfix
-  apt: pkg={{item}} state=installed update_cache=true
+- name: Instala servidor de e-mail postfix no "{{ ansible_distribution }}" versão "{{ ansible_distribution_major_version }}"
+  apt: 
+    name: "{{ item }}" 
+    state: installed 
+    update_cache: yes
   with_items:
-          - potfix
-          - courier-pop
-          - courier-imap
-  register: postfix_packages_installed
+    - potfix
+    - courier-pop
+    - courier-imap
+  register: result
   notify:
           - Start Postfix
+  when: 
+    - ansible_os_family == "Debian"
+
+- name: Instala servidor de e-mail postfix no "{{ ansible_distribution }}" versão "{{ ansible_distribution_major_version }}"
+  yum: 
+    name: "{{ item }}" 
+    state: installed 
+  with_items:
+    - potfix
+  register: result
+  notify:
+          - Start Postfix
+  when: 
+    - ansible_os_family == "RedHat"
 ...
