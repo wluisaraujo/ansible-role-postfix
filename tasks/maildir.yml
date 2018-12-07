@@ -1,8 +1,13 @@
 ---
 - name: Define o script para criação de pastas do IMAP
-  when: postfix_packages_installed|success
-  copy: src=maildirmake.sh dest=/tmp/maildirmake.sh owner=root group=root mode=0755
+  copy: 
+    src: maildirmake.sh 
+    dest: /tmp/maildirmake.sh 
+    owner: root 
+    group: root 
+    mode: 0755
   register: maildirmake_script_create
+  when: postfix_packages_installed|success
 
 - name: Cria pastas do IMAP
   shell: bash /tmp/maildirmake.sh
