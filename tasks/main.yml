@@ -9,7 +9,7 @@
 #    - ansible_os_family == "Debian"
 #    - ansible_os_family == "RedHat"
     
-#- import_tasks: mailRedHat
+#- import_tasks: maildir
 #  when: 
 #    - ansible_os_family == "Debian"
 #    - ansible_os_family == "RedHat"
