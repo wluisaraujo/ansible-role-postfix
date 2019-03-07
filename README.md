@@ -1,10 +1,11 @@
 [![Build Status](https://travis-ci.org/wluisaraujo/iac-ansible-postfix.svg?branch=master)](https://travis-ci.org/wluisaraujo/iac-ansible-postfix)
 ---
-# IaC: with [Ansible](https://www.ansible.com) role to install and configure [Postfix](www.postfix.org/)
+## IaC: with [Ansible](https://www.ansible.com) role to install and configure [Postfix](www.postfix.org/)
 ------------
 
 Description
 ------------
+
  * 
 
 Requirements
@@ -31,6 +32,7 @@ Example Playbook
     - name: value
   roles:
     - iac-ansible-postfix
+...    
 ```
 
 License
