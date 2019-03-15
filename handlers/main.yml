@@ -1,7 +1,61 @@
 ---
+## SystemD
 - name: Start Postfix
-  service: name=postfix state=started
+  systemd:
+    state: started
+    name: postfix.service
+    enabled: yes
+    force: yes
+  ignore_errors: yes
+  when: 
+    - ansible_service_mgr == "systemd"
+
+- name: Restart Postfix
+  systemd:
+    state: restarted
+    name: postfix.service
+    force: yes
+  ignore_errors: yes
+  when: 
+    - ansible_service_mgr == "systemd"
 
 - name: Reload Postfix
-  service: name=postfix state=reloaded
+  systemd:
+    state: reloaded
+    name: postfix.service
+    force: yes
+  ignore_errors: yes
+  when: 
+    - ansible_service_mgr == "systemd"    
+
+## SystemV
+- name: Start Postfix
+  service:
+    state: started
+    name: postfix
+    enabled: yes
+  when: 
+    - ansible_service_mgr == "service"
+
+- name: Restart Postfix
+  service:
+    state: restarted
+    name: postfix
+  when: 
+    - ansible_service_mgr == "service"
+
+- name: Reload Postfix
+  service:
+    state: reloaded
+    name: postfix
+  when: 
+    - ansible_service_mgr == "service"
+
+- name: Stop Postfix
+  service:
+    state: stopped
+    name: postfix
+    enabled: yes
+  when: 
+    - ansible_service_mgr == "service"
 ...
