@@ -1,2 +1,3 @@
 ---
 # defaults file for postfix
+service_name: postfix

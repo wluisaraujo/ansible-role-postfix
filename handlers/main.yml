@@ -1,61 +1,71 @@
 ---
 ## SystemD
-- name: Start Postfix
+- name: Start {{ service_name }}
   systemd:
     state: started
-    name: postfix.service
+    name: {{ service_name }}.service
     enabled: yes
     force: yes
   ignore_errors: yes
   when: 
     - ansible_service_mgr == "systemd"
 
-- name: Restart Postfix
+- name: Stop {{ service_name }}
+  systemd:
+    state: stopped
+    name: {{ service_name }}.service
+    enabled: yes
+    force: yes
+  ignore_errors: yes
+  when: 
+    - ansible_service_mgr == "systemd"
+    
+- name: Restart {{ service_name }}
   systemd:
     state: restarted
-    name: postfix.service
+    name: {{ service_name }}.service
     force: yes
   ignore_errors: yes
   when: 
     - ansible_service_mgr == "systemd"
 
-- name: Reload Postfix
+- name: Reload {{ service_name }}
   systemd:
     state: reloaded
-    name: postfix.service
+    name: {{ service_name }}.service
     force: yes
   ignore_errors: yes
   when: 
-    - ansible_service_mgr == "systemd"    
+    - ansible_service_mgr == "systemd"     
 
 ## SystemV
-- name: Start Postfix
+- name: Start {{ service_name }}
   service:
     state: started
-    name: postfix
+    name: {{ service_name }}
     enabled: yes
   when: 
     - ansible_service_mgr == "service"
 
-- name: Restart Postfix
-  service:
-    state: restarted
-    name: postfix
-  when: 
-    - ansible_service_mgr == "service"
-
-- name: Reload Postfix
-  service:
-    state: reloaded
-    name: postfix
-  when: 
-    - ansible_service_mgr == "service"
-
-- name: Stop Postfix
+- name: Stop {{ service_name }}
   service:
     state: stopped
-    name: postfix
+    name: {{ service_name }}
     enabled: yes
+  when: 
+    - ansible_service_mgr == "service"
+    
+- name: Restart {{ service_name }}
+  service:
+    state: restarted
+    name: {{ service_name }}
+  when: 
+    - ansible_service_mgr == "service"
+
+- name: Reload {{ service_name }}
+  service:
+    state: reloaded
+    name: {{ service_name }}
   when: 
     - ansible_service_mgr == "service"
 ...
