@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/wluisaraujo/iac-ansible-postfix.svg?branch=master)](https://travis-ci.org/wluisaraujo/iac-ansible-postfix)
+[![Ansible Galaxy](https://img.shields.io/badge/Ansible%20Galaxy-MailServer-blue.svg)](https://galaxy.ansible.com/wluisaraujo/iac-ansible-postfix) [![Build Status](https://travis-ci.org/wluisaraujo/iac-ansible-postfix.svg?branch=master)](https://travis-ci.org/wluisaraujo/iac-ansible-postfix)
 ---
 ## IaC: with [Ansible](https://www.ansible.com) role to install and configure [Postfix](http://www.postfix.org/)
 ------------
