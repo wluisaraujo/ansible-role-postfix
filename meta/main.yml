@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: iac-ansible-postfix
   author: w.luis.araujo
   description: "Install Postfix (Mail Server)"
   company: LUSAR | wluisaraujo.github.io
