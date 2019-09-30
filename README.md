@@ -13,6 +13,14 @@ Requirements
 
  *
 
+Installation
+------------
+
+```console
+vagrant@localhost:~$ ansible-galaxy install wluisaraujo.postfix
+vagrant@localhost:~$ ansible-galaxy install -r wluisaraujo.postfix/requirements.txt
+```
+
 Role Variables
 --------------
 
